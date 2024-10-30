@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Login Test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
+
+  <style>
+    textarea, input { width: 300px; }
+  </style>
+  <script>
+    // 2006459403-LdVrj6jz
+    const LIFF_ID = "2006459403-zRa7323K";
+
+    $(document).ready(function() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+
+      // let code = urlParams.get('code');
+      // let state = urlParams.get('state');
+      // let liffClientId = urlParams.get('liffClientId');
+      // let liffRedirectUri = urlParams.get('liffRedirectUri');
+
+      liff.init({ liffId: LIFF_ID }, successCallback, errorCallback);
+    });
+
+    function successCallback() {
+      alert('LIFF successCallback');
+      if(liff.isLoggedIn()) {
+        lineGetProfile();
+      }
+    }
+
+    function errorCallback() {
+      alert('LIFF errorCallback');
+      console.log('Error Callback...');
+    }
+
+    function lineLogin() {
+      alert('LIFF isInClient', liff.isInClient());
+      liff.login();
+    }
+
+    function lineLogout() {
+      liff.logout();
+      location.reload();
+      window.location.replace('http://bbalino000.github.io/LINE-Test/');
+    }
+
+    function lineGetProfile() {
+      liff.getProfile().then(profile => {
+        let isLoggedIn = liff.isLoggedIn();
+        let accessToken = liff.getAccessToken();
+        let userId = profile.userId;
+
+        $("#isLoggedIn").text(isLoggedIn);
+        $("#accessToken").val(accessToken);
+        $("#lineUid").val(userId);
+      }).catch((err) => {
+        console.log('Profile', err);
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Line Login Test</h1>
+
+  <h3>isLogged in: </h3>
+  <p id="isLoggedIn">false</p>
+
+  <h3>Line UID: </h3>
+  <input type="text" name="lineUid" id="lineUid">
+
+  <h3>Access Token: </h3>
+  <textarea id="accessToken" name="accessToken" rows="6"></textarea>
+
+  <br><br><br><br>
+  <button onclick="lineLogin()">Login</button>
+  <button onclick="lineLogout()">Logout</button>
+  <br><br>
+  <a href="http://bbalino000.github.io/LINE-Test/">&larr; Back to Github Page</a>
+</body>
+</html>
