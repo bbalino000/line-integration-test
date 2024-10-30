@@ -24,7 +24,7 @@
       // let liffClientId = urlParams.get('liffClientId');
       // let liffRedirectUri = urlParams.get('liffRedirectUri');
 
-      liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
+      liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
     });
 
     function successCallback() {
@@ -41,7 +41,7 @@
 
     function lineLogin() {
       alert(liff.isInClient());
-      liff.init({ liffId: LIFF_ID_TEST1 });
+      liff.init({ liffId: LIFF_ID_TEST2 });
       liff.login();
     }
 
