@@ -12,8 +12,8 @@
     textarea, input { width: 300px; }
   </style>
   <script>
-    // 2006459403-LdVrj6jz
-    const LIFF_ID = "2006459403-zRa7323K";
+    const LIFF_ID_TEST1 = "2006459403-LdVrj6jz";
+    const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 
     $(document).ready(function() {
       const queryString = window.location.search;
@@ -63,6 +63,11 @@
         console.log('Profile', err);
       });
     }
+
+    function lineLoginTest1() {
+      liff.init({ liffId: LIFF_ID_TEST1 });
+      liff.login();
+    }
   </script>
 </head>
 <body>
@@ -78,8 +83,10 @@
   <textarea id="accessToken" name="accessToken" rows="6"></textarea>
 
   <br><br><br><br>
-  <button onclick="lineLogin()">Login</button>
+  <button onclick="lineLogin()">Login to TEST2</button>
   <button onclick="lineLogout()">Logout</button>
+  <br><br>
+  <button onclick="lineLoginTest1()">Login to TEST1</button>
   <br><br>
   <a href="http://bbalino000.github.io/LINE-Test/">&larr; Back to Github Page</a>
 </body>
