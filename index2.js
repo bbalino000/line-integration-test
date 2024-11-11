@@ -3,6 +3,7 @@ const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 
 document.addEventListener("DOMContentLoaded", function() {
   liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+  lineGetProfile();
   
   $('#btn-line-samepage').click(() => {
     liff.login();
