@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Login Test</title>
+
+  <link rel="stylesheet" href="index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
+</head>
+
+<body>
+  <h1>Line Login (same page)</h1>
+  <span id="btn-line-samepage">
+    <img src="btn_login_base.png" class="btn-line-img" alt="btn-line">
+  </span>
+
+  <br><br><hr><br>
+  <h3>isLogged in: </h3>
+  <p id="isLoggedIn">false</p>
+
+  <h3>Line UID: </h3>
+  <input type="text" name="lineUid" id="lineUid">
+
+  <h3>Access Token: </h3>
+  <textarea id="accessToken" name="accessToken" rows="6"></textarea>
+
+  <br><br><hr><br>
+  <button onclick="lineLogout()">Logout</button>
+
+  <script src="index2.js"></script>
+</body>
+</html>
