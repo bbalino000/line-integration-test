@@ -3,4 +3,5 @@ textarea, input { width: 300px; }
 .btn-line-img {
   height: 60px;
   display: block;
+  cursor: pointer;
 }
