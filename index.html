@@ -5,74 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Line Login Test</title>
+  <link rel="stylesheet" href="index.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
-
-  <style>
-    textarea, input { width: 300px; }
-  </style>
-  <script>
-    const LIFF_ID_TEST1 = "2006459403-LdVrj6jz";
-    const LIFF_ID_TEST2 = "2006459403-zRa7323K";
-
-    $(document).ready(function() {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-
-      // let code = urlParams.get('code');
-      // let state = urlParams.get('state');
-      // let liffClientId = urlParams.get('liffClientId');
-      // let liffRedirectUri = urlParams.get('liffRedirectUri');
-
-      liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
-    });
-
-    function successCallback() {
-      alert('LIFF successCallback');
-      if(liff.isLoggedIn()) {
-        lineGetProfile();
-      }
-    }
-
-    function errorCallback() {
-      alert('LIFF errorCallback');
-      console.log('Error Callback...');
-    }
-
-    function lineLogin() {
-      alert(liff.isInClient());
-      liff.init({ liffId: LIFF_ID_TEST2 });
-      liff.login();
-    }
-
-    function lineLogout() {
-      liff.logout();
-      location.reload();
-    }
-
-    function lineGetProfile() {
-      liff.getProfile().then(profile => {
-        let isLoggedIn = liff.isLoggedIn();
-        let accessToken = liff.getAccessToken();
-        let userId = profile.userId;
-
-        $("#isLoggedIn").text(isLoggedIn);
-        $("#accessToken").val(accessToken);
-        $("#lineUid").val(userId);
-      }).catch((err) => {
-        console.log('Profile', err);
-      });
-    }
-
-    function lineLoginTest1() {
-      liff.init({ liffId: LIFF_ID_TEST1 });
-      liff.login();
-    }
-  </script>
+  <script src="index.js"></script>
 </head>
-<body>
-  <h1>Line Login Test</h1>
 
+<body>
+  <h1>Line Login (to Proconnect)</h1>
+  <a href="" id="btn-line-proconnect">
+    <img src="btn_login_base.png" class="btn-line-img" alt="btn-line">
+  </a>
+
+  <h1>Line Login (same page)</h1>
+  <a href="" id="btn-line-samepage">
+    <img src="btn_login_base.png" class="btn-line-img" alt="btn-line">
+  </a>
+
+  <br><br><hr><br>
   <h3>isLogged in: </h3>
   <p id="isLoggedIn">false</p>
 
@@ -82,12 +33,7 @@
   <h3>Access Token: </h3>
   <textarea id="accessToken" name="accessToken" rows="6"></textarea>
 
-  <br><br><br><br>
-  <button onclick="lineLogin()">Login to TEST2</button>
+  <br><br><hr><br>
   <button onclick="lineLogout()">Logout</button>
-  <br><br>
-  <button onclick="lineLoginTest1()">Login to TEST1</button>
-  <br><br>
-  <a href="http://bbalino000.github.io/LINE-Test/">&larr; Back to Github Page</a>
 </body>
 </html>
