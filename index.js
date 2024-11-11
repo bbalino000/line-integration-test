@@ -10,31 +10,33 @@ $(document).ready(function() {
   // let liffClientId = urlParams.get('liffClientId');
   // let liffRedirectUri = urlParams.get('liffRedirectUri');
 
-  // liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+  lineGetProfile();
+
   $('#btn-line-proconnect').click(() => {
     lineLoginTest1();
   });
 
   $('#btn-line-samepage').click(() => {
-    lineLogin();
+    lineLoginTest2();
   });
 });
 
 function successCallback() {
-  alert('LIFF successCallback');
+  console.log('LIFF successCallback');
   if(liff.isLoggedIn()) {
     lineGetProfile();
   }
 }
 
 function errorCallback() {
-  alert('LIFF errorCallback');
+  console.log('LIFF errorCallback');
   console.log('Error Callback...');
 }
 
-function lineLogin() {
-  alert(liff.isInClient());
-  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+function lineLoginTest2() {
+  console.log(liff.isInClient());
+  liff.init({ liffId: LIFF_ID_TEST2 });
   liff.login();
 }
 
@@ -58,6 +60,6 @@ function lineGetProfile() {
 }
 
 function lineLoginTest1() {
-  liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
+  liff.init({ liffId: LIFF_ID_TEST1 });
   liff.login();
 }
