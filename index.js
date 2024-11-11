@@ -14,11 +14,13 @@ $(document).ready(function() {
   // lineGetProfile();
 
   $('#btn-line-proconnect').click(() => {
-    lineLoginTest1();
+    liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
+    liff.login();
   });
 
   $('#btn-line-samepage').click(() => {
-    lineLoginTest2();
+    liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+    liff.login();
   });
 });
 
@@ -34,11 +36,11 @@ function errorCallback() {
   console.log('Error Callback...');
 }
 
-function lineLoginTest2() {
-  console.log(liff.isInClient());
-  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
-  liff.login();
-}
+// function lineLoginTest2() {
+//   console.log(liff.isInClient());
+//   liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+//   liff.login();
+// }
 
 function lineLogout() {
   liff.logout();
@@ -59,7 +61,7 @@ function lineGetProfile() {
   });
 }
 
-function lineLoginTest1() {
-  liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
-  liff.login();
-}
+// function lineLoginTest1() {
+//   liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
+//   liff.login();
+// }
