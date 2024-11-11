@@ -2,8 +2,6 @@ const LIFF_ID_TEST1 = "2006459403-LdVrj6jz";
 const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 
 document.addEventListener("DOMContentLoaded", function() {
-  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
-  
   $('#btn-line-proconnect').click(() => {
     liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
     liff.login();
