@@ -10,7 +10,7 @@ $(document).ready(function() {
   // let liffClientId = urlParams.get('liffClientId');
   // let liffRedirectUri = urlParams.get('liffRedirectUri');
 
-  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+  // liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
   $('#btn-line-proconnect').click(() => {
     lineLoginTest1();
   });
@@ -34,7 +34,7 @@ function errorCallback() {
 
 function lineLogin() {
   alert(liff.isInClient());
-  liff.init({ liffId: LIFF_ID_TEST2 });
+  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
   liff.login();
 }
 
@@ -58,6 +58,6 @@ function lineGetProfile() {
 }
 
 function lineLoginTest1() {
-  liff.init({ liffId: LIFF_ID_TEST1 });
+  liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
   liff.login();
 }
