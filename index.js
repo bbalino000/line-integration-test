@@ -14,6 +14,7 @@ $(document).ready(function() {
   // lineGetProfile();
 
   $('#btn-line-proconnect').click(() => {
+    console.log(LIFF_ID_TEST1);
     liff.init({ liffId: LIFF_ID_TEST1 }, successCallback, errorCallback);
     liff.login();
   });
