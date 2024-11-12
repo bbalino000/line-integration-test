@@ -6,8 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
   $('#isInCLient').text(isInClient);
 
   liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
-  lineGetProfile();
-  
+
+  // if (!liff.isLoggedIn()) {
+  //   lineGetProfile();
+  // }
+    
   $('#btn-line-samepage').click(() => {
     liff.login();
   });
