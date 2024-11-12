@@ -2,7 +2,7 @@ const LIFF_ID_TEST1 = "2006459403-LdVrj6jz";
 const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 
 document.addEventListener("DOMContentLoaded", function() {
-  alert(liff.isInClient());
+  $('#isInCLient').text(liff.isInClient());
   
   liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
   lineGetProfile();
