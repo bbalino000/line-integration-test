@@ -1,19 +1,5 @@
+// Authorable
 const LIFF_ID_TEST2 = "2006459403-zRa7323K";
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   let isInClient = liff.isInClient();
-//   $('#isInCLient').text(isInClient);
-
-//   liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
-
-//   // if (!liff.isLoggedIn()) {
-//   //   lineGetProfile();
-//   // }
-    
-  // $('#btn-line-samepage').click(() => {
-  //   liff.login();
-  // });
-// });
 
 document.addEventListener("DOMContentLoaded", function() {
   liff.init({ liffId: LIFF_ID_TEST2 })
@@ -32,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function lineLogout() {
     liff.logout();
-    window.location.reload();
+    location.reload();
   }
   
   function lineGetProfile() {
@@ -51,16 +37,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
-
-// function successCallback() {
-//   console.log('LIFF successCallback');
-//   if(liff.isLoggedIn()) {
-//     lineGetProfile();
-//   }
-// }
-
-// function errorCallback() {
-//   console.log('LIFF errorCallback');
-//   console.log('Error Callback...');
-// }
 
