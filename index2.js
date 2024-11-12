@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   $('#btn-line-samepage').click(() => {
     liff.login();
     lineGetProfile();
+    location.reload();
   });
 });
 
