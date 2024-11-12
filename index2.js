@@ -10,15 +10,15 @@ const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 //   //   lineGetProfile();
 //   // }
     
-//   $('#btn-line-samepage').click(() => {
-//     liff.login();
-//   });
+  // $('#btn-line-samepage').click(() => {
+  //   liff.login();
+  // });
 // });
 
 document.addEventListener("DOMContentLoaded", function() {
   liff.init({ liffId: LIFF_ID_TEST2 })
     .then(() => {
-      if (!liff.isLoggedIn()) {
+      if (!liff.isLoggedIn() && !liff.isInClient()) {
         liff.login();
       } else {
         lineGetProfile();
@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(err => console.error('LIFF Initialization Failed', err));
   
+  $('#btn-line-samepage').click(() => {
+    liff.login();
+  });
+
   function lineLogout() {
     liff.logout();
     window.location.reload();
@@ -36,7 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
       let isLoggedIn = liff.isLoggedIn();
       let accessToken = liff.getAccessToken();
       let userId = profile.userId;
-  
+      let isInClient = liff.isInClient();
+      
+      $('#isInCLient').text(isInClient);
       $("#isLoggedIn").text(isLoggedIn);
       $("#accessToken").val(accessToken);
       $("#lineUid").val(userId);
