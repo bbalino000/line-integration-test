@@ -2,26 +2,11 @@ const LIFF_ID_TEST1 = "2006459403-LdVrj6jz";
 const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 
 document.addEventListener("DOMContentLoaded", function() {
-  // liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
-  // lineGetProfile();
+  liff.init({ liffId: LIFF_ID_TEST2 }, successCallback, errorCallback);
+  lineGetProfile();
   
   $('#btn-line-samepage').click(() => {
-    // liff.login();
-    liff
-    .init({
-      liffId: "123456-abcedfg", // Use own liffId
-    })
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        liff.login();
-      } else {
-        lineGetProfile();
-      }
-    })
-    .catch((err) => {
-      // Error happens during initialization
-      console.log(err.code, err.message);
-    });
+    liff.login();
   });
 });
 
