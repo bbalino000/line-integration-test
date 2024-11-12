@@ -22,8 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(err => console.error('LIFF Initialization Failed', err));
   
-  $('#btn-line-samepage').click(() => {
+  $('#btn-line-login').click(() => {
     liff.login();
+  });
+
+  $('#btn-line-logout').click(() => {
+    lineLogout();
   });
 
   function lineLogout() {
