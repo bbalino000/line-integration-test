@@ -18,11 +18,7 @@ const LIFF_ID_TEST2 = "2006459403-zRa7323K";
 document.addEventListener("DOMContentLoaded", function() {
   liff.init({ liffId: LIFF_ID_TEST2 })
     .then(() => {
-      if (!liff.isLoggedIn() && !liff.isInClient()) {
-        liff.login();
-      } else {
         lineGetProfile();
-      }
     })
     .catch(err => console.error('LIFF Initialization Failed', err));
   
