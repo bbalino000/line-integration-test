@@ -27,11 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
       let accessToken = liff.getAccessToken();
       let userId = profile.userId;
       let isInClient = liff.isInClient();
+      let email = liff.getDecodedIDToken().email;
       
       $('#isInCLient').text(isInClient);
       $("#isLoggedIn").text(isLoggedIn);
       $("#accessToken").val(accessToken);
       $("#lineUid").val(userId);
+      $("#email").val(email);
     }).catch((err) => {
       console.log('lineGetProfile Error', err);
     });
